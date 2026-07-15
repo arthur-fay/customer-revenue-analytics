@@ -1,364 +1,179 @@
-\# E-Commerce Executive Dashboard
-
-
+# E-Commerce Executive Dashboard
 
 An end-to-end e-commerce analytics project built with SQL, Google Colab, and Power BI. The project transforms transactional data into an interactive executive dashboard focused on revenue, customers, order performance, delivery reliability, and product-category performance.
 
+## Dashboard Preview
 
+![E-Commerce Executive Dashboard](01%20Raw%20Screenshots/Ecommerce_Executive_Dashboard.png)
 
-\## Dashboard Preview
+## Annotated Dashboard
 
+![Annotated E-Commerce Dashboard](02%20Annotated%20Images/Ecommerce_Executive_Dashboard_Annotated.png)
 
-
-!\[E-Commerce Executive Dashboard](01%20Raw%20Screenshots/Ecommerce\_Executive\_Dashboard.png)
-
-
-
-\## Annotated Dashboard
-
-
-
-!\[Annotated E-Commerce Dashboard](02%20Annotated%20Images/Ecommerce\_Executive\_Dashboard\_Annotated.png)
-
-
-
-\## Project Overview
-
-
+## Project Overview
 
 This project was created to provide business leaders with a clear view of overall e-commerce performance.
 
-
-
 The dashboard allows users to:
 
+- Track total orders, revenue, customers, and average order value
+- Monitor delivery and on-time delivery performance
+- Analyze monthly revenue trends
+- Identify the highest-revenue product categories
+- Compare completed, failed, and incomplete orders
+- Filter the dashboard by year range and order status
 
-
-\- Track total orders, revenue, customers, and average order value
-
-\- Monitor delivery and on-time delivery performance
-
-\- Analyze monthly revenue trends
-
-\- Identify the highest-revenue product categories
-
-\- Compare completed, failed, and incomplete orders
-
-\- Filter the dashboard by year range and order status
-
-
-
-\## Key Performance Indicators
-
-
+## Key Performance Indicators
 
 | KPI | Result |
-
 |---|---:|
-
 | Total Orders | 99K |
-
 | Total Revenue | R$15.84M |
-
 | Total Customers | 96K |
-
 | Average Order Value | R$159.33 |
-
 | Delivery Rate | 97.02% |
-
 | On-Time Delivery Rate | 91.88% |
 
+## Key Business Insights
 
+- Health and beauty generated the highest product-category revenue at approximately R$1.44M.
+- Watches and gifts followed with approximately R$1.31M.
+- Monthly revenue increased considerably throughout the analysis period.
+- Completed orders represented the overwhelming majority of all orders.
+- Approximately 97% of orders were delivered successfully.
+- More than 91% of delivered orders arrived on time.
+- The dashboard includes year-range and order-status filters for interactive analysis.
 
-\## Key Business Insights
+## Dashboard Features
 
+- Six executive KPI cards
+- Monthly revenue trend analysis
+- Top 10 product categories by revenue
+- Orders by status comparison
+- Interactive year-range slicer
+- Interactive order-status slicer
+- Dynamic cross-filtering between visuals
+- Incomplete-month filtering for accurate trend reporting
+- Professional dashboard annotations for portfolio presentation
 
+## Data Model
 
-\- Health and beauty generated the highest product-category revenue at approximately R$1.44M.
-
-\- Watches and gifts followed with approximately R$1.31M.
-
-\- Monthly revenue increased considerably throughout the analysis period.
-
-\- Completed orders represented the overwhelming majority of all orders.
-
-\- Approximately 97% of orders were delivered successfully.
-
-\- More than 91% of delivered orders arrived on time.
-
-\- The dashboard includes year-range and order-status filters for interactive analysis.
-
-
-
-\## Dashboard Features
-
-
-
-\- Six executive KPI cards
-
-\- Monthly revenue trend analysis
-
-\- Top 10 product categories by revenue
-
-\- Orders by status comparison
-
-\- Interactive year-range slicer
-
-\- Interactive order-status slicer
-
-\- Dynamic cross-filtering between visuals
-
-\- Incomplete-month filtering for accurate trend reporting
-
-\- Professional dashboard annotations for portfolio presentation
-
-
-
-\## Data Model
-
-
-
-!\[E-Commerce Data Model](01%20Raw%20Screenshots/Ecommerce\_Data\_Model.png)
-
-
+![E-Commerce Data Model](01%20Raw%20Screenshots/Ecommerce_Data_Model.png)
 
 The Power BI model uses a dimensional structure with fact and dimension tables.
 
+### Fact Tables
 
+- `fact_orders`
+- `fact_order_items`
+- `fact_cohort_retention`
 
-\### Fact Tables
+### Dimension Tables
 
+- `dim_date`
+- `dim_customer`
+- `dim_product`
+- `dim_seller`
+- `dim_payment_method`
+- `dim_order_status`
 
+### Measure Table
 
-\- `fact\_orders`
-
-\- `fact\_order\_items`
-
-\- `fact\_cohort\_retention`
-
-
-
-\### Dimension Tables
-
-
-
-\- `dim\_date`
-
-\- `dim\_customer`
-
-\- `dim\_product`
-
-\- `dim\_seller`
-
-\- `dim\_payment\_method`
-
-\- `dim\_order\_status`
-
-
-
-\### Measure Table
-
-
-
-\- `KPI\_Measures`
-
-
+- `KPI_Measures`
 
 The relationships support filtering across dates, customers, products, sellers, payment methods, and order statuses.
 
-
-
-\## Selected DAX Measures
-
-
+## Selected DAX Measures
 
 ```DAX
-
 Total Orders =
-
-COUNTROWS(fact\_orders)
-
+COUNTROWS(fact_orders)
 ```
 
-
-
 ```DAX
-
 Total Revenue =
-
-SUM(fact\_order\_items\[merchandise\_revenue])
-
-&#x20;   + SUM(fact\_order\_items\[freight\_revenue])
-
+SUM(fact_order_items[merchandise_revenue])
+    + SUM(fact_order_items[freight_revenue])
 ```
 
-
-
 ```DAX
-
 Average Order Value =
-
 DIVIDE(
-
-&#x20;   \[Total Revenue],
-
-&#x20;   \[Total Orders],
-
-&#x20;   0
-
+    [Total Revenue],
+    [Total Orders],
+    0
 )
-
 ```
 
-
-
 ```DAX
-
 Delivery Rate % =
-
 DIVIDE(
-
-&#x20;   \[Delivered Orders],
-
-&#x20;   \[Total Orders],
-
-&#x20;   0
-
+    [Delivered Orders],
+    [Total Orders],
+    0
 )
-
 ```
-
-
 
 ```DAX
-
 On-Time Delivery Rate % =
-
 DIVIDE(
-
-&#x20;   \[On-Time Delivered Orders],
-
-&#x20;   \[Delivered Orders],
-
-&#x20;   0
-
+    [On-Time Delivered Orders],
+    [Delivered Orders],
+    0
 )
-
 ```
 
+## Tools and Technologies
 
+- SQL
+- Google Colab
+- Power BI Desktop
+- Power Query
+- DAX
+- Data modeling
+- Data visualization
+- Business intelligence
+- GitHub
 
-\## Tools and Technologies
-
-
-
-\- SQL
-
-\- Google Colab
-
-\- Power BI Desktop
-
-\- Power Query
-
-\- DAX
-
-\- Data modeling
-
-\- Data visualization
-
-\- Business intelligence
-
-\- GitHub
-
-
-
-\## Repository Structure
-
-
+## Repository Structure
 
 ```text
-
-Project1\_Ecommerce\_Dashboard/
-
+customer-revenue-analytics/
 ├── 01 Raw Screenshots/
-
-│   ├── Ecommerce\_Executive\_Dashboard.png
-
-│   └── Ecommerce\_Data\_Model.png
-
+│   ├── Ecommerce_Executive_Dashboard.png
+│   └── Ecommerce_Data_Model.png
 ├── 02 Annotated Images/
-
-│   └── Ecommerce\_Executive\_Dashboard\_Annotated.png
-
+│   └── Ecommerce_Executive_Dashboard_Annotated.png
 ├── 03 PBIX FILE/
-
-│   └── Ecommerce\_Executive\_Dashboard.pbix
-
+│   └── Ecommerce_Executive_Dashboard.pbix
 ├── 04 Exports/
-
-│   └── Ecommerce\_Executive\_Dashboard.pdf
-
+│   └── Ecommerce_Executive_Dashboard.pdf
 └── README.md
-
 ```
 
+## Project Files
 
+- [Download the Power BI dashboard](03%20PBIX%20FILE/Ecommerce_Executive_Dashboard.pbix)
+- [View the dashboard PDF](04%20Exports/Ecommerce_Executive_Dashboard.pdf)
+- [View the clean dashboard image](01%20Raw%20Screenshots/Ecommerce_Executive_Dashboard.png)
+- [View the annotated dashboard image](02%20Annotated%20Images/Ecommerce_Executive_Dashboard_Annotated.png)
+- [View the data model](01%20Raw%20Screenshots/Ecommerce_Data_Model.png)
 
-\## Project Files
+## Skills Demonstrated
 
+- Data cleaning and transformation
+- Relational and dimensional data modeling
+- KPI development with DAX
+- Interactive dashboard development
+- Time-series analysis
+- Product-category analysis
+- Operational-performance analysis
+- Data storytelling
+- Executive reporting
+- GitHub repository documentation
 
+## Author
 
-\- \[Download the Power BI dashboard](03%20PBIX%20FILE/Ecommerce\_Executive\_Dashboard.pbix)
-
-\- \[View the dashboard PDF](04%20Exports/Ecommerce\_Executive\_Dashboard.pdf)
-
-\- \[View the clean dashboard image](01%20Raw%20Screenshots/Ecommerce\_Executive\_Dashboard.png)
-
-\- \[View the annotated dashboard image](02%20Annotated%20Images/Ecommerce\_Executive\_Dashboard\_Annotated.png)
-
-\- \[View the data model](01%20Raw%20Screenshots/Ecommerce\_Data\_Model.png)
-
-\## 
-
-Skills Demonstrated
-
-
-
-\- Data cleaning and transformation
-
-\- Relational and dimensional data modeling
-
-\- KPI development with DAX
-
-\- Interactive dashboard development
-
-\- Time-series analysis
-
-\- Product-category analysis
-
-\- Operational-performance analysis
-
-\- Data storytelling
-
-\- Executive reporting
-
-\- GitHub repository documentation
-
-\## 
-
-Author
-
-
-
-\*\*Arthur Fay\*\*
-
-
+**Arthur Fay**
 
 Data Analytics and Business Intelligence Portfolio Project
-
-
-
-
-
-
-
