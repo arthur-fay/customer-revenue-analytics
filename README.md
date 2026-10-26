@@ -1,5 +1,16 @@
 # E-Commerce Executive Dashboard
 
+## Start here — original report and interactive companion
+
+| What to inspect | Link |
+| --- | --- |
+| **Original Power BI dashboard** | [Dashboard screenshot](01%20Raw%20Screenshots/Ecommerce_Executive_Dashboard.png) · [Power BI file](03%20PBIX%20FILE/Ecommerce_Executive_Dashboard.pbix) · [PDF export](04%20Exports/Ecommerce_Executive_Dashboard.pdf) |
+| **Dimensional model and DAX** | [Data model](#data-model) · [Selected measures](#selected-dax-measures) |
+| **Companion browser lab** | [Open the E-Commerce Analytics Lab](https://arthur-fay.github.io/lab/ecommerce/) · [Lab source and tests](https://github.com/arthur-fay/arthur-fay.github.io/tree/main/lab/ecommerce) |
+| **Broader engineering portfolio** | [Arthur Fay — The Architect Lab](https://arthur-fay.github.io/) |
+
+**Scope and provenance.** The metrics below are **rounded figures reported by this Power BI project's README** (for example, 99K orders and R$15.84M revenue), not a transaction-level export published by the browser lab. The separate static-site lab explores the documented model and DAX and calculates **explicitly hypothetical** what-if scenarios. Scenario outputs must not be interpreted as observed business results or forecasts. The companion lab has tests in the portfolio repository; this original Power BI repository does **not claim a CI-tested web service**.
+
 An end-to-end e-commerce analytics project built with SQL, Google Colab, and Power BI. The project transforms transactional data into an interactive executive dashboard focused on revenue, customers, order performance, delivery reliability, and product-category performance.
 
 ## Dashboard Preview
